@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 const demoData = [
   {
@@ -53,6 +54,10 @@ const demoData = [
 
 const CreditCard = () => {
   const [cardType, setCardType] = useState("VISA");
+    const token = localStorage.getItem("token");
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
   return (
     <div className="p-4 md:ml-64 md:p-6">
       <div className="bg-white rounded-xl shadow p-6 mb-6">

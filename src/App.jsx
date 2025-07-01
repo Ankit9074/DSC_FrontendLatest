@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import ServicePacks from "./components/ServicePacks";
@@ -9,13 +9,27 @@ import Recharge from "./pages/Recharge";
 import CashCollection from "./pages/CashCollection";
 import LICPremium from "./pages/LICPremium";
 import CreditCard from "./pages/CreditCard";
+import UserAuth from "./components/UserAuth";
+import Signup from "./components/Signup";
 
 function App() {
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+
+  // Only allow /login and /signup if not authenticated
+  const isAuthRoute = location.pathname === "/login" || location.pathname === "/signup";
+  if (!token && !isAuthRoute) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const hideLayout = isAuthRoute;
   return (
     <div className="min-h-screen bg-gray-100">
-      <Sidebar />
-      <Header />
+      {!hideLayout && <Sidebar />}
+      {!hideLayout && <Header />}
       <Routes>
+        <Route path="/login" element={<UserAuth />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Dashboard />} />
         <Route path="/ott" element={<OTTSubscriptions />} />
         <Route path="/sell-earn" element={<SellAndEarn />} />
