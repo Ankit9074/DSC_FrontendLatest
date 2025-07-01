@@ -21,6 +21,7 @@ const Sidebar = () => {
     location.pathname.startsWith("/recharge")
   );
   const [open, setOpen] = useState(false); // Sidebar open/close state
+  const [utilityOpen, setUtilityOpen] = useState(location.pathname.startsWith("/utility"));
 
   // Sidebar classes for responsive open/close
   const sidebarClasses = `bg-gradient-to-b from-blue-600 via-blue-500 to-blue-400 shadow-2xl h-full w-64 fixed left-0 top-0 z-50 flex flex-col justify-space  animate-fade-in transition-transform duration-300
@@ -137,10 +138,66 @@ const Sidebar = () => {
                 <FaUsers size={20} /> <span className="font-medium">Sell & Earn</span>
               </Link>
             </li>
-            <li className="transition-all duration-200 flex items-center gap-3 rounded-xl px-3 py-2 text-white/80 hover:bg-white/10 hover:text-white cursor-pointer" onClick={() => setOpen(false)}>
-              <FaTh size={20} />{" "}
-              <span className="font-medium">Utility Services</span>{" "}
-              <MdKeyboardArrowRight size={20} />
+            <li className="flex flex-col select-none">
+              <div
+                className={`transition-all duration-200 flex items-center gap-3 rounded-xl px-3 py-2 cursor-pointer ${
+                  location.pathname.startsWith("/utility")
+                    ? "bg-white/20 text-white shadow-lg"
+                    : "text-white/80 hover:bg-white/10 hover:text-white"
+                }`}
+                onClick={() => setUtilityOpen((prev) => !prev)}
+              >
+                <FaTh size={20} />{" "}
+                <span className="font-medium">Utility Services</span>{" "}
+                {utilityOpen ? (
+                  <MdKeyboardArrowDown size={22} />
+                ) : (
+                  <MdKeyboardArrowRight size={22} />
+                )}
+              </div>
+              {utilityOpen && (
+                <ul className="ml-8 mt-2 space-y-1">
+                  <li>
+                    <Link
+                      to="/utility/cash-collection"
+                      className={`block px-3 py-1.5 rounded-lg transition-all duration-150 text-sm font-semibold ${
+                        location.pathname === "/utility/cash-collection"
+                          ? "bg-yellow-300/80 text-blue-900 shadow"
+                          : "hover:bg-yellow-100/80 hover:text-blue-700 text-white/80"
+                      }`}
+                      onClick={() => setOpen(false)}
+                    >
+                      Cash Collection
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/utility/lic-premium"
+                      className={`block px-3 py-1.5 rounded-lg transition-all duration-150 text-sm font-semibold ${
+                        location.pathname === "/utility/lic-premium"
+                          ? "bg-yellow-300/80 text-blue-900 shadow"
+                          : "hover:bg-yellow-100/80 hover:text-blue-700 text-white/80"
+                      }`}
+                      onClick={() => setOpen(false)}
+                    >
+                      LIC Premium
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/utility/credit-card"
+                      className={`block px-3 py-1.5 rounded-lg transition-all duration-150 text-sm font-semibold ${
+                        location.pathname === "/utility/credit-card"
+                          ? "bg-yellow-300/80 text-blue-900 shadow"
+                          : "hover:bg-yellow-100/80 hover:text-blue-700 text-white/80"
+                      }`}
+                      onClick={() => setOpen(false)}
+                    >
+                      Credit Card
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
           </ul>
         </div>

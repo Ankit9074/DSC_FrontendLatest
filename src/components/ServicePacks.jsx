@@ -1,3 +1,5 @@
+import React from "react";
+import RandomNoticeBoard from "./RandomNoticeBoard";
 
 const ServicePacks = () => {
   const services = [
@@ -35,8 +37,17 @@ const ServicePacks = () => {
           </div>
         ))}
       </div>
+
+      {/* More Section */}
+      <div className="mt-8">
+        <h2 className="text-lg font-semibold mb-4 text-gray-800">More</h2>
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+          <RandomNoticeBoard />
+        </div>
+      </div>
     </div>
   );
 };
 
 export default ServicePacks;
+
