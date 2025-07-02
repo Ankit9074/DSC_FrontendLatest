@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import RandomNoticeBoard from "./RandomNoticeBoard";
 
 const ServicePacks = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [showKycPopup, setShowKycPopup] = useState(false);
+
+  useEffect(() => {
+    // Get token and userId from localStorage
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
+    async function fetchUserProfile() {
+      try {
+        if (!token || !userId) return;
+        const res = await fetch(
+          `https://dsc-backend-rd2n.onrender.com/api/users/profile/${userId}`,
+          {
+            headers: {
+              Authorization: ` ${token}`,
+            },
+          }
+        );
+        if (res.ok) {
+          const data = await res.json();
+          setUser(data.user);
+        }
+      } catch (err) {}
+    }
+    fetchUserProfile();
+  }, []);
   const services = [
     { img: require("../assets/bank-transfer.png"), title: "Money Transfer" },
     { img: require("../assets/wallet.png"), title: "Wallet" },
@@ -13,7 +41,6 @@ const ServicePacks = () => {
     {img: require("../assets/bankcsp.png"), title: "Bank CSP" },
     {img: require("../assets/bus.png"), title: "Bus" },
     {img: require("../assets/train.png"), title: "Train" },
-    {img: require("../assets/Aadhaar1.png"), title: "Aadhaar" },
     { img: require("../assets/id-card.png"), title: "ID Card" },
     { img: require("../assets/bill.png"), title: "Bill" },
     { img: require("../assets/mobile.png"), title: "Mobile Charge" },
@@ -36,6 +63,13 @@ const ServicePacks = () => {
           <div
             key={i}
             className="bg-gradient-to-br from-blue-100 to-purple-200 rounded-xl p-6 shadow-lg flex flex-col items-center transition-transform transform hover:scale-105 hover:shadow-2xl cursor-pointer border-2 border-transparent hover:border-blue-400"
+            onClick={() => {
+              if (user && user.kyc_status === false) {
+                navigate("/kyc-form");
+              } else {
+                setShowKycPopup(true);
+              }
+            }}
           >
             <img
               src={s.img}
@@ -45,6 +79,20 @@ const ServicePacks = () => {
             <span className="mt-2 text-xs text-gray-700 font-medium">{s.title}</span>
           </div>
         ))}
+      {/* KYC Pending Popup */}
+      {showKycPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center">
+            <span className="text-2xl mb-2 text-blue-700 font-bold">Pending by Admin</span>
+            <button
+              className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+              onClick={() => setShowKycPopup(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
       </div>
 
       {/* More Section */}

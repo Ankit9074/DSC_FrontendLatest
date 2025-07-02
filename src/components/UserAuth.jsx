@@ -17,6 +17,7 @@ const UserAuth = () => {
         password: form.password
       });
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("userId", res.data.userId);
       alert("Login successful");
       navigate("/");
     } catch (err) {

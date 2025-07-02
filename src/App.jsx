@@ -13,6 +13,7 @@ import UserAuth from "./components/UserAuth";
 import Signup from "./components/Signup";
 import AdminAuth from "./components/AdminAuth";
 import AdminDashboard from "./components/AdminDashboard";
+import KycForm from "./pages/KycForm";
 
 function App() {
   const location = useLocation();
@@ -38,6 +39,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/ott" element={<OTTSubscriptions />} />
         <Route path="/sell-earn" element={<SellAndEarn />} />
+        <Route path="/kyc-form" element={<KycForm />} />
         {/* Updated recharge routes for mobile and dth */}
         <Route path="/recharge" element={<Navigate to="/recharge/mobile" replace />} />
         <Route path="/recharge/mobile" element={<Recharge tabType="mobile" />} />
