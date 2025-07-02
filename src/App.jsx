@@ -11,13 +11,15 @@ import LICPremium from "./pages/LICPremium";
 import CreditCard from "./pages/CreditCard";
 import UserAuth from "./components/UserAuth";
 import Signup from "./components/Signup";
+import AdminAuth from "./components/AdminAuth";
+import AdminDashboard from "./components/AdminDashboard";
 
 function App() {
   const location = useLocation();
   const token = localStorage.getItem("token");
 
   // Only allow /login and /signup if not authenticated
-  const isAuthRoute = location.pathname === "/login" || location.pathname === "/signup";
+  const isAuthRoute = location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/admin" || location.pathname === "/admin-dashboard";
   if (!token && !isAuthRoute) {
     return <Navigate to="/login" replace />;
   }
@@ -30,6 +32,9 @@ function App() {
       <Routes>
         <Route path="/login" element={<UserAuth />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/admin" element={<AdminAuth />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        {/* Redirect root to dashboard */}
         <Route path="/" element={<Dashboard />} />
         <Route path="/ott" element={<OTTSubscriptions />} />
         <Route path="/sell-earn" element={<SellAndEarn />} />
