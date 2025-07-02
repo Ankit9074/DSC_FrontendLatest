@@ -12,11 +12,12 @@ import {
 } from "react-icons/fa";
 import { RiDashboardLine } from "react-icons/ri";
 import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Sidebar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [rechargeOpen, setRechargeOpen] = useState(
     location.pathname.startsWith("/recharge")
   );
@@ -201,10 +202,19 @@ const Sidebar = () => {
             </li>
           </ul>
         </div>
-        <div className="p-6">
+        <div className="p-6 flex flex-col gap-3">
           <div className="flex items-center gap-3 text-white bg-gradient-to-r from-yellow-400 to-yellow-500 px-4 py-2 rounded-xl shadow-lg cursor-pointer hover:scale-105 transition-transform font-semibold">
             <FaPlus size={18} /> <span>Add Service</span>
           </div>
+          <button
+            className="flex items-center gap-3 text-white bg-gradient-to-r from-red-400 to-red-600 px-4 py-2 rounded-xl shadow-lg cursor-pointer hover:scale-105 transition-transform font-semibold mt-2"
+            onClick={() => {
+              localStorage.clear();
+              navigate("/login");
+            }}
+          >
+            <span>Logout</span>
+          </button>
         </div>
       </div>
     </>
