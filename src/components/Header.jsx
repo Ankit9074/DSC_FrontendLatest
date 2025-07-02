@@ -195,7 +195,7 @@ const Header = () => {
                 className="flex-1 md:hidden"
                 onClick={() => setShowProfile(false)}
               ></div>
-              <div className="w-full max-w-xs md:w-80 bg-white rounded-t-xl md:rounded-xl shadow-2xl p-4 animate-fade-in flex flex-col gap-2 mx-auto md:mx-0 md:ml-auto relative">
+              <div className="w-full max-w-xs md:w-96 bg-white rounded-t-xl md:rounded-xl shadow-2xl p-4 animate-fade-in flex flex-col gap-2 mx-auto md:mx-0 md:ml-auto relative">
                 {/* Mobile close button */}
                 <button
                   className="absolute top-2 right-2 md:hidden text-gray-500 hover:text-blue-700 text-2xl font-bold z-10"
@@ -206,60 +206,50 @@ const Header = () => {
                 </button>
                 <div className="flex items-center gap-3 mb-2">
                   <img
-                    src={Boy }
+                    src={Boy}
                     alt="Profile"
                     className="h-12 w-12 rounded-full border"
                   />
                   <div>
                     <div className="font-bold text-blue-900 text-lg">
-                      Welcome
+                      {user ? user.first_name || user.name : "Welcome"}
                     </div>
                     <div className="text-sm text-gray-700">
-                      {user ? user.first_name || user.name : "Hello User"}
+                      {user ? user.email : ""}
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-2 mb-2">
-                  <div className="flex-1 flex flex-col items-center border-r">
-                    <span className="text-xs text-gray-500">
-                      Wallet Balance
-                    </span>
-                    <span className="font-bold text-lg">
-                      ₹ {user ? user.wallet_balance : 0}
-                    </span>
-                  </div>
-                  <div className="flex-1 flex flex-col items-center">
-                    <span className="text-xs text-gray-500">Coins</span>
-                    <span className="font-bold text-lg">0</span>
-                  </div>
-                  <div className="flex-1 flex flex-col items-center">
-                    <span className="text-xs text-red-500">Coin Expiring</span>
-                    <span className="font-bold text-lg text-red-500">0</span>
-                  </div>
-                </div>
-                <hr />
-                <div className="flex flex-col gap-1">
-                  <button className="text-left py-2 px-3 rounded hover:bg-blue-50 font-medium">
-                    Profile
-                  </button>
-                  <button className="text-left py-2 px-3 rounded hover:bg-blue-50 font-medium">
-                    My Wallet
-                  </button>
-                  <button className="text-left py-2 px-3 rounded hover:bg-blue-50 font-medium">
-                    Reports - Accounts
-                  </button>
-                  <button className="text-left py-2 px-3 rounded hover:bg-blue-50 font-medium">
-                    Reports - Services
-                  </button>
-                  <button className="text-left py-2 px-3 rounded hover:bg-blue-50 font-medium">
-                    Deal Sheet
-                  </button>
-                  <button className="text-left py-2 px-3 rounded hover:bg-blue-50 font-medium">
-                    Help Center
-                  </button>
-                  <button className="text-left py-2 px-3 rounded hover:bg-blue-50 font-medium">
-                    Notifications
-                  </button>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-2">
+                  <div className="font-semibold text-gray-600">Name:</div>
+                  <div>{user ? user.first_name + ' ' + user.last_name : ''}</div>
+                  <div className="font-semibold text-gray-600">Email:</div>
+                  <div>{user ? user.email : ''}</div>
+                  <div className="font-semibold text-gray-600">Phone:</div>
+                  <div>{user ? user.phone : ''}</div>
+                  <div className="font-semibold text-gray-600">DOB:</div>
+                  <div>{user && user.date_of_birth ? new Date(user.date_of_birth).toLocaleDateString() : ''}</div>
+                  <div className="font-semibold text-gray-600">Aadhaar No:</div>
+                  <div>{user ? user.aadhaar_no : ''}</div>
+                  <div className="font-semibold text-gray-600">PAN No:</div>
+                  <div>{user ? user.pan_number : ''}</div>
+                  <div className="font-semibold text-gray-600">Address:</div>
+                  <div>{user ? user.address : ''}</div>
+                  <div className="font-semibold text-gray-600">Pincode:</div>
+                  <div>{user ? user.pincode : ''}</div>
+                  <div className="font-semibold text-gray-600">City:</div>
+                  <div>{user ? user.city : ''}</div>
+                  <div className="font-semibold text-gray-600">State:</div>
+                  <div>{user ? user.state : ''}</div>
+                  <div className="font-semibold text-gray-600">Country:</div>
+                  <div>{user ? user.country : ''}</div>
+                  <div className="font-semibold text-gray-600">Business Name:</div>
+                  <div>{user ? user.businessName : ''}</div>
+                  <div className="font-semibold text-gray-600">Bank Account:</div>
+                  <div>{user ? user.bankAccount : ''}</div>
+                  <div className="font-semibold text-gray-600">Bank IFSC:</div>
+                  <div>{user ? user.bankIfsc : ''}</div>
+                  <div className="font-semibold text-gray-600">Wallet Balance:</div>
+                  <div>₹ {user ? user.wallet_balance : 0}</div>
                 </div>
               </div>
             </div>
