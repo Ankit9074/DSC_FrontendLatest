@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Boy from "../assets/boy.png"
 
 const Header = () => {
   const [showProfile, setShowProfile] = useState(false);
@@ -160,17 +161,7 @@ const Header = () => {
                 </button>
                 <div className="flex items-center gap-3 mb-2">
                   <img
-                    src={
-                      user && user.profile_image
-                        ? user.profile_image
-                        : `https://ui-avatars.com/api/?name=${
-                            user
-                              ? encodeURIComponent(
-                                  user.first_name || user.name || "User"
-                                )
-                              : "User"
-                          }`
-                    }
+                    src={Boy }
                     alt="Profile"
                     className="h-12 w-12 rounded-full border"
                   />
