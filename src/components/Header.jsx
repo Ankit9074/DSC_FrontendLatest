@@ -6,6 +6,8 @@ const Header = () => {
   const [showProfile, setShowProfile] = useState(false);
   const [user, setUser] = useState(null);
   const [showKycPopup, setShowKycPopup] = useState(false);
+  const [showEmailDetails, setShowEmailDetails] = useState(false);
+  const [showCallDetails, setShowCallDetails] = useState(false);
   const profileRef = useRef();
   const navigate = useNavigate();
 
@@ -76,6 +78,49 @@ const Header = () => {
       </div>
 
       <div className="flex items-center gap-2 md:gap-4" ref={profileRef}>
+        {/* Email and Call Option */}
+        <div className="flex items-center gap-2">
+          <button
+            className="p-2 rounded-full hover:bg-gray-100 transition relative"
+            onClick={() => setShowEmailDetails((prev) => !prev)}
+            title="Email"
+          >
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/><polyline points="3 7 12 13 21 7" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
+          </button>
+          <button
+            className="p-2 rounded-full hover:bg-gray-100 transition relative"
+            onClick={() => setShowCallDetails((prev) => !prev)}
+            title="Call"
+          >
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.09 1A19.91 19.91 0 0 1 3 5.09 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1.13 4.52a1 1 0 0 1-.29 1L8.21 12.21a16 16 0 0 0 6.58 6.58l1.94-1.94a1 1 0 0 1 1-.29l4.52 1.13a1 1 0 0 1 .75 1V21z" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
+          </button>
+        </div>
+        {/* Email Details Popup */}
+        {showEmailDetails && (
+          <div className="absolute top-14 right-0 bg-white border border-gray-200 rounded shadow-lg p-4 z-50 min-w-[220px] flex flex-col items-start">
+            <span className="font-semibold text-gray-700 mb-2">Contact Email</span>
+            <span className="text-blue-700 select-all">support@dscpay.in</span>
+            <button className="mt-2 text-xs text-blue-600 hover:underline" onClick={() => setShowEmailDetails(false)}>Close</button>
+          </div>
+        )}
+        {/* Call Details Popup */}
+        {showCallDetails && (
+          <div className="absolute top-14 right-0 bg-white border border-gray-200 rounded shadow-lg p-4 z-50 min-w-[220px] flex flex-col items-start">
+            <span className="font-semibold text-gray-700 mb-2">Contact Number</span>
+            <span className="text-blue-700 select-all">+91-9876543210</span>
+            <button className="mt-2 text-xs text-blue-600 hover:underline" onClick={() => setShowCallDetails(false)}>Close</button>
+          </div>
+        )}
+        {/* KYC Incomplete Option */}
+        {user && user.kyc_status === false && (
+          <button
+            className="flex items-center gap-1 bg-orange-50 border border-orange-300 text-orange-600 px-3 py-1 rounded-full font-semibold text-sm hover:bg-orange-100 transition mr-2"
+            onClick={() => navigate('/kyc-form')}
+          >
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="inline-block align-middle"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/><line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>
+            <span>KYC Incomplete</span>
+          </button>
+        )}
         <button className="relative p-2 rounded-full hover:bg-blue-50 transition group">
           <span
             className="text-xl"
