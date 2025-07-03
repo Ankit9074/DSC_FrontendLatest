@@ -236,7 +236,7 @@ const Header = () => {
                   </button>
                   <button
                     className="text-left px-4 py-2 rounded hover:bg-blue-100 font-medium text-blue-700 transition"
-                    onClick={() => { setShowProfile(false); navigate('/deal-sheet'); }}
+                    onClick={() => { setShowProfile(false); navigate('/'); }}
                   >
                    withdrawal
 
