@@ -220,37 +220,33 @@ const Header = () => {
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-2">
-                  <div className="font-semibold text-gray-600">Name:</div>
-                  <div>{user ? user.first_name + ' ' + user.last_name : ''}</div>
-                  <div className="font-semibold text-gray-600">Email:</div>
-                  <div>{user ? user.email : ''}</div>
-                  <div className="font-semibold text-gray-600">Phone:</div>
-                  <div>{user ? user.phone : ''}</div>
-                  <div className="font-semibold text-gray-600">DOB:</div>
-                  <div>{user && user.date_of_birth ? new Date(user.date_of_birth).toLocaleDateString() : ''}</div>
-                  <div className="font-semibold text-gray-600">Aadhaar No:</div>
-                  <div>{user ? user.aadhaar_no : ''}</div>
-                  <div className="font-semibold text-gray-600">PAN No:</div>
-                  <div>{user ? user.pan_number : ''}</div>
-                  <div className="font-semibold text-gray-600">Address:</div>
-                  <div>{user ? user.address : ''}</div>
-                  <div className="font-semibold text-gray-600">Pincode:</div>
-                  <div>{user ? user.pincode : ''}</div>
-                  <div className="font-semibold text-gray-600">City:</div>
-                  <div>{user ? user.city : ''}</div>
-                  <div className="font-semibold text-gray-600">State:</div>
-                  <div>{user ? user.state : ''}</div>
-                  <div className="font-semibold text-gray-600">Country:</div>
-                  <div>{user ? user.country : ''}</div>
-                  <div className="font-semibold text-gray-600">Business Name:</div>
-                  <div>{user ? user.businessName : ''}</div>
-                  <div className="font-semibold text-gray-600">Bank Account:</div>
-                  <div>{user ? user.bankAccount : ''}</div>
-                  <div className="font-semibold text-gray-600">Bank IFSC:</div>
-                  <div>{user ? user.bankIfsc : ''}</div>
-                  <div className="font-semibold text-gray-600">Wallet Balance:</div>
-                  <div>₹ {user ? user.wallet_balance : 0}</div>
+                {/* Options */}
+                <div className="flex flex-col gap-2 mb-4">
+                  <button
+                    className="text-left px-4 py-2 rounded hover:bg-blue-100 font-medium text-blue-700 transition"
+                    onClick={() => { setShowProfile(false); navigate('/profile'); }}
+                  >
+                    Profile
+                  </button>
+                  <button
+                    className="text-left px-4 py-2 rounded hover:bg-blue-100 font-medium text-blue-700 transition"
+                    onClick={() => { setShowProfile(false); navigate('/'); }}
+                  >
+                    Wallet
+                  </button>
+                  <button
+                    className="text-left px-4 py-2 rounded hover:bg-blue-100 font-medium text-blue-700 transition"
+                    onClick={() => { setShowProfile(false); navigate('/deal-sheet'); }}
+                  >
+                   withdrawal
+
+                  </button>
+                   <button
+                    className="text-left px-4 py-2 rounded hover:bg-blue-100 font-medium text-blue-700 transition"
+                    onClick={() => { setShowProfile(false); navigate('/transactions'); }}
+                  >
+                   Transactions
+                  </button>
                 </div>
               </div>
             </div>

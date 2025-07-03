@@ -14,6 +14,8 @@ import Signup from "./components/Signup";
 import AdminAuth from "./components/AdminAuth";
 import AdminDashboard from "./components/AdminDashboard";
 import KycForm from "./pages/KycForm";
+import Profile from "./pages/Profile";
+import Transactions from "./pages/Transactions";
 
 function App() {
   const location = useLocation();
@@ -47,7 +49,8 @@ function App() {
         <Route path="/utility/cash-collection" element={<CashCollection />} />
         <Route path="/utility/lic-premium" element={<LICPremium />} />
         <Route path="/utility/credit-card" element={<CreditCard />} />
-        {/* Add more routes as needed */}
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/transactions" element={<Transactions/>} />
       </Routes>
     </div>
   );
