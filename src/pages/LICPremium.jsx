@@ -126,7 +126,7 @@ const LICPremium = () => {
               </tr>
             </thead>
             <tbody>
-              {demoData.map((row, idx) => (
+              {/* {demoData.map((row, idx) => (
                 <tr className="border-b" key={row.transactionId}>
                   <td className="px-4 py-2">{row.policyNo}</td>
                   <td className="px-4 py-2">{row.name}</td>
@@ -139,7 +139,7 @@ const LICPremium = () => {
                   <td className="px-4 py-2">{row.complain}</td>
                   <td className="px-4 py-2">{row.receipt}</td>
                 </tr>
-              ))}
+              ))} */}
             </tbody>
           </table>
         </div>

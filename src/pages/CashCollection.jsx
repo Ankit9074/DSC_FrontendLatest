@@ -71,7 +71,7 @@ const CashCollection = () => {
               </tr>
             </thead>
             <tbody>
-              {demoData.map((row, idx) => (
+              {/* {demoData.map((row, idx) => (
                 <tr className="border-b" key={row.transactionId}>
                   <td className="px-4 py-2">{row.amount}</td>
                   <td className="px-4 py-2">{row.transactionId}</td>
@@ -83,7 +83,7 @@ const CashCollection = () => {
                   <td className="px-4 py-2">{row.complain}</td>
                   <td className="px-4 py-2">{row.receipt}</td>
                 </tr>
-              ))}
+              ))} */}
             </tbody>
           </table>
         </div>

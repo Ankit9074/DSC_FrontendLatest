@@ -277,7 +277,7 @@ const Recharge = ({ tabType }) => {
               </tr>
             </thead>
             <tbody>
-              {transactions.length === 0 ? (
+              {/* {transactions.length === 0 ? (
                 <tr>
                   <td colSpan={9} className="text-center py-4 sm:py-6 text-blue-700 font-semibold text-sm sm:text-base">
                     View Latest Transactions
@@ -309,7 +309,7 @@ const Recharge = ({ tabType }) => {
                     </td>
                   </tr>
                 ))
-              )}
+              )} */}
             </tbody>
           </table>
         </div>

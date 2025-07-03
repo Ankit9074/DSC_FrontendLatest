@@ -127,7 +127,7 @@ const CreditCard = () => {
               </tr>
             </thead>
             <tbody>
-              {demoData.map((row, idx) => (
+              {/* {demoData.map((row, idx) => (
                 <tr className="border-b" key={row.transactionId}>
                   <td className="px-4 py-2">{row.customerMobile}</td>
                   <td className="px-4 py-2">{row.amount}</td>
@@ -144,7 +144,7 @@ const CreditCard = () => {
                   <td className="px-4 py-2">{row.checkStatus}</td>
                   <td className="px-4 py-2">{row.claim}</td>
                 </tr>
-              ))}
+              ))} */}
             </tbody>
           </table>
         </div>

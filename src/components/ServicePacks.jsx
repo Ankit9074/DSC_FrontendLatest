@@ -58,6 +58,9 @@ const ServicePacks = () => {
 
   return (
     <div className="p-4 md:ml-64 md:p-6">
+     
+
+      {/* Services Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4">
         {services.map((s, i) => (
           <div
@@ -79,22 +82,67 @@ const ServicePacks = () => {
             <span className="mt-2 text-xs text-gray-700 font-medium">{s.title}</span>
           </div>
         ))}
-      {/* KYC Pending Popup */}
-      {showKycPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center">
-            <span className="text-2xl mb-2 text-blue-700 font-bold">Pending by Admin</span>
-            <button
-              className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-              onClick={() => setShowKycPopup(false)}
-            >
-              Close
-            </button>
+        {/* KYC Pending Popup */}
+        {showKycPopup && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+            <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center">
+              <span className="text-2xl mb-2 text-blue-700 font-bold">Pending by Admin</span>
+              <button
+                className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                onClick={() => setShowKycPopup(false)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+ {/* Dashboard UI */}
+      <div className="mb-8 mt-6">
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap gap-2 justify-center mb-6">
+          <button className="px-6 py-2 rounded bg-[#2d317a] text-white font-semibold focus:outline-none">Today</button>
+          <button className="px-6 py-2 rounded bg-[#338af3] text-white font-semibold focus:outline-none">Yesterday</button>
+          <button className="px-6 py-2 rounded bg-[#338af3] text-white font-semibold focus:outline-none">Week</button>
+          <button className="px-6 py-2 rounded bg-[#338af3] text-white font-semibold focus:outline-none">Month</button>
+          <button className="px-6 py-2 rounded bg-[#338af3] text-white font-semibold focus:outline-none">Last Month</button>
+        </div>
+        {/* Dashboard Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {/* Total Income */}
+          <div className="flex items-center bg-white rounded-lg shadow p-4 min-h-[110px]">
+            <img src={require("../assets/cash.png")} alt="Total Income" className="w-12 h-12 mr-4" />
+            <div>
+              <div className="font-semibold text-gray-800">Total Income</div>
+              <div className="text-2xl font-bold text-gray-900">0</div>
+            </div>
+          </div>
+          {/* Transaction Volume */}
+          <div className="flex items-center bg-white rounded-lg shadow p-4 min-h-[110px]">
+            <img src={require("../assets/commerce.png")} alt="Transaction Volume" className="w-12 h-12 mr-4" />
+            <div>
+              <div className="font-semibold text-gray-800">Transaction Volume</div>
+              <div className="text-2xl font-bold text-gray-900">0</div>
+            </div>
+          </div>
+          {/* Count */}
+          <div className="flex items-center bg-white rounded-lg shadow p-4 min-h-[110px]">
+            <img src={require("../assets/bankcsp.png")} alt="Count" className="w-12 h-12 mr-4" />
+            <div>
+              <div className="font-semibold text-gray-800">Count</div>
+              <div className="text-2xl font-bold text-gray-900">0</div>
+            </div>
+          </div>
+          {/* Complaints */}
+          <div className="flex items-center bg-white rounded-lg shadow p-4 min-h-[110px]">
+            <img src={require("../assets/boy.png")} alt="Complaints" className="w-12 h-12 mr-4" />
+            <div>
+              <div className="font-semibold text-gray-800">Complaints</div>
+              <div className="text-2xl font-bold text-gray-900">0</div>
+            </div>
           </div>
         </div>
-      )}
       </div>
-
       {/* More Section */}
       <div className="mt-8">
         <h2 className="text-lg font-semibold mb-4 text-gray-800">More</h2>
