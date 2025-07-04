@@ -33,7 +33,7 @@ const ServicePacks = () => {
   const services = [
     { img: require("../assets/bank-transfer.png"), title: "Money Transfer" },
     { img: require("../assets/wallet.png"), title: "Wallet" },
-    {img: require("../assets/Aadhaar1.png"), title: "Aadhaar" },
+    // {img: require("../assets/Aadhaar1.png"), title: "Aadhaar" },
     {img: require("../assets/Edistric.png"), title: "E-Distric" },
     {img: require("../assets/digitalgold.png"), title: "Digital Gold" },
     {img: require("../assets/credit-card.png"), title: "Credit Card Payment" },
