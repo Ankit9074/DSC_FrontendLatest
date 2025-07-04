@@ -5,12 +5,14 @@ import API from "../api";
 const UserAuth = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleLogin = async () => {
     setLoading(true);
+    setMessage("");
     try {
       const res = await API.post("/users/login", {
         email: form.email,
@@ -18,10 +20,12 @@ const UserAuth = () => {
       });
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.userId);
-      alert("Login successful");
-      navigate("/");
+      setMessage("Login successful! Redirecting...");
+      setTimeout(() => {
+        navigate("/");
+      }, 1200);
     } catch (err) {
-      alert("Login failed");
+      setMessage("Login failed. Please check your email and password.");
     }
     setLoading(false);
   };
@@ -31,7 +35,7 @@ const UserAuth = () => {
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
         <h2 className="text-2xl font-bold text-center mb-6 text-blue-700">
           Welcome To{" "}
-          <span className="text-cyan-500">E Tailed Digital Services PVT LTD</span>
+          <span className="text-cyan-500">Digital Service Centre pvt Ltd PVT LTD</span>
         </h2>
         <div className="mb-4">
           <input
@@ -59,6 +63,9 @@ const UserAuth = () => {
         >
           {loading ? "Logging in..." : "LOG IN"}
         </button>
+        {message && (
+          <div className={`mt-4 text-center font-semibold ${message.includes('successful') ? 'text-green-600' : 'text-red-600'}`}>{message}</div>
+        )}
         <div className="text-center mt-4">
           <span>Don't have an account? </span>
           <a href="/signup" className="text-blue-600 font-semibold hover:underline">
