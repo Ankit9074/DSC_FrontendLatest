@@ -37,6 +37,7 @@ const ServicePacks = () => {
     {img: require("../assets/Edistric.png"), title: "E-Distric" },
     {img: require("../assets/digitalgold.png"), title: "Digital Gold" },
     {img: require("../assets/credit-card.png"), title: "Credit Card Payment" },
+    {img: require("../assets/ayushman.png"), title: "Aayushman " },
     {img: require("../assets/fingerprint.png"), title: "AEPS" },
     {img: require("../assets/bankcsp.png"), title: "Bank CSP" },
     {img: require("../assets/bus.png"), title: "Bus" },

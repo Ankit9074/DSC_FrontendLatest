@@ -40,7 +40,11 @@ const AdminAuth = () => {
         }}
       >
         <div className="flex flex-col items-center mb-8">
-          <img src={logo} alt="Logo" className="w-24 h-24 rounded-full shadow-xl mb-3 border-4 border-white bg-white" />
+             <img
+  src={logo}
+  alt="Logo"
+  className="w-20 h-20 object-contain shadow-lg mb-2 border-4 border-white bg-white"
+/>
          <h2 className="text-4xl font-extrabold text-center mb-1 text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
   Admin Login
 </h2>
