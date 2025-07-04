@@ -61,7 +61,9 @@ const Transactions = () => {
                   <td className="px-4 py-2">{new Date(txn.date).toLocaleString()}</td>
                   <td className={`px-4 py-2 font-semibold ${txn.type === 'credit' ? 'text-green-600' : 'text-red-600'}`}>{txn.type}</td>
                   <td className="px-4 py-2">₹ {txn.amount}</td>
-                  <td className="px-4 py-2">{txn.description}</td>
+                  {/* <td className="px-4 py-2">{txn.description}</td> 
+                  */}
+                  <td>Funds added</td>
                 </tr>
               ))}
             </tbody>
