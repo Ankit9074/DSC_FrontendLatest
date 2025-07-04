@@ -41,8 +41,12 @@ const AdminAuth = () => {
       >
         <div className="flex flex-col items-center mb-8">
           <img src={logo} alt="Logo" className="w-24 h-24 rounded-full shadow-xl mb-3 border-4 border-white bg-white" />
-          <h2 className="text-4xl font-extrabold text-center mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-cyan-500 to-indigo-600 drop-shadow">Admin Login</h2>
-          <span className="text-cyan-600 font-semibold text-lg tracking-wide">Digital Service Centre</span>
+         <h2 className="text-4xl font-extrabold text-center mb-1 text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+  Admin Login
+</h2>
+      <span className="text-white font-semibold text-lg tracking-wide drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+  Digital Service Centre
+</span>
         </div>
         <div className="mb-4 relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-400">

@@ -7,7 +7,7 @@ const Signup = () => {
     name: "",
     email: "",
     phone: "",
-    password: ""
+    password: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -34,20 +34,38 @@ const Signup = () => {
       <div
         className="w-full max-w-md p-8 rounded-2xl shadow-2xl relative"
         style={{
-          background: 'rgba(255, 255, 255, 0.15)',
-          backdropFilter: 'blur(16px) saturate(180%)',
-          border: '1px solid rgba(255,255,255,0.2)',
-          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+          background: "rgba(255, 255, 255, 0.15)",
+          backdropFilter: "blur(16px) saturate(180%)",
+          border: "1px solid rgba(255,255,255,0.2)",
+          boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
         }}
       >
         <div className="flex flex-col items-center mb-6">
-          <img src={logo} alt="Logo" className="w-20 h-20 rounded-full shadow-lg mb-2 border-4 border-white bg-white" />
-          <h2 className="text-3xl font-extrabold text-center mb-1 text-blue-800 drop-shadow">Sign Up</h2>
-          <span className="text-cyan-500 font-semibold text-lg">Digital Service Centre</span>
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-20 h-20 rounded-full shadow-lg mb-2 border-4 border-white bg-white"
+          />
+
+          <h2 className="text-4xl font-extrabold text-center mb-1 text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+            Sign Up
+          </h2>
+          <span className="text-white font-semibold text-lg tracking-wide drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+            Digital Service Centre
+          </span>
         </div>
         <div className="mb-4 relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-400">
-            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </span>
           <input
             name="name"
@@ -60,7 +78,17 @@ const Signup = () => {
         </div>
         <div className="mb-4 relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-400">
-            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0Z"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.07 7.07-1.42-1.42M6.34 6.34 4.93 4.93m12.02 0-1.41 1.41M6.34 17.66l-1.41 1.41"/></svg>
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M16 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0Z" />
+              <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.07 7.07-1.42-1.42M6.34 6.34 4.93 4.93m12.02 0-1.41 1.41M6.34 17.66l-1.41 1.41" />
+            </svg>
           </span>
           <input
             name="email"
@@ -74,7 +102,17 @@ const Signup = () => {
         </div>
         <div className="mb-4 relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-400">
-            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M3 10a9 9 0 0 1 18 0c0 4.97-4.03 9-9 9s-9-4.03-9-9Z"/><path d="M12 14v2m0-6v2"/></svg>
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M3 10a9 9 0 0 1 18 0c0 4.97-4.03 9-9 9s-9-4.03-9-9Z" />
+              <path d="M12 14v2m0-6v2" />
+            </svg>
           </span>
           <input
             name="phone"
@@ -87,7 +125,17 @@ const Signup = () => {
         </div>
         <div className="mb-4 relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-400">
-            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
           </span>
           <input
             name="password"
@@ -103,11 +151,30 @@ const Signup = () => {
           onClick={handleSignup}
           className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-600 hover:to-cyan-500 text-white font-bold py-2 rounded-lg shadow-lg transition duration-200 text-lg tracking-wide"
           disabled={loading}
-          style={{ boxShadow: '0 4px 14px 0 rgba(0, 118, 255, 0.39)' }}
+          style={{ boxShadow: "0 4px 14px 0 rgba(0, 118, 255, 0.39)" }}
         >
           {loading ? (
             <span className="flex items-center justify-center">
-              <svg className="animate-spin mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>
+              <svg
+                className="animate-spin mr-2 h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v8z"
+                ></path>
+              </svg>
               Signing up...
             </span>
           ) : (
@@ -116,7 +183,12 @@ const Signup = () => {
         </button>
         <div className="text-center mt-6">
           <span className="text-white-100">Already have an account? </span>
-          <a href="/login" className="text-white-100 font-semibold hover:underline transition">Log In</a>
+          <a
+            href="/login"
+            className="text-white-100 font-semibold hover:underline transition"
+          >
+            Log In
+          </a>
         </div>
       </div>
     </div>
