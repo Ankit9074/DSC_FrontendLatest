@@ -16,6 +16,7 @@ import AdminDashboard from "./components/AdminDashboard";
 import KycForm from "./pages/KycForm";
 import Profile from "./pages/Profile";
 import Transactions from "./pages/Transactions";
+import Aadhaar from "./pages/Aadhaar";
 
 function App() {
   const location = useLocation();
@@ -51,6 +52,8 @@ function App() {
         <Route path="/utility/credit-card" element={<CreditCard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/transactions" element={<Transactions/>} />
+        <Route path="/aadhaar" element={<Aadhaar />} />
+        {/* Catch-all route to redirect to dashboard */}
       </Routes>
     </div>
   );

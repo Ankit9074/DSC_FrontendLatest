@@ -139,6 +139,18 @@ const Sidebar = () => {
                 <FaUsers size={20} /> <span className="font-medium">Sell & Earn</span>
               </Link>
             </li>
+             <li
+              className={`transition-all duration-200 flex items-center gap-3 rounded-xl px-3 py-2 cursor-pointer ${
+                location.pathname === "/Aadhaar"
+                  ? "bg-white/20 text-white shadow-lg"
+                  : "text-white/80 hover:bg-white/10 hover:text-white"
+              }`}
+              onClick={() => setOpen(false)}
+            >
+              <Link to="/Aadhaar" className="flex items-center gap-3 w-full">
+                <FaUsers size={20} /> <span className="font-medium">Aadhaar Services</span>
+              </Link>
+            </li>
             <li className="flex flex-col select-none">
               <div
                 className={`transition-all duration-200 flex items-center gap-3 rounded-xl px-3 py-2 cursor-pointer ${
