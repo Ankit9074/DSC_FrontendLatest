@@ -38,6 +38,10 @@ const Transactions = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 py-10">
       <div className="max-w-3xl mx-auto bg-white/80 rounded-xl shadow-lg p-6 mt-8 backdrop-blur-md">
+        {/* Help text for email and mobile */}
+        <div className="mb-4 p-3 bg-blue-100 rounded text-blue-800 text-sm">
+          For help, contact us at <span className="font-semibold">teamdigitalservicecenter@gmail.com</span> or call <span className="font-semibold">+91-9285356192</span>.
+        </div>
         <h2 className="text-2xl font-bold text-blue-900 mb-6">Transaction History</h2>
         {loading ? (
           <div className="text-gray-600">Loading...</div>
