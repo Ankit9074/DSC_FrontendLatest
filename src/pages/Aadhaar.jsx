@@ -1,15 +1,48 @@
 
 import React from "react";
 import aadhaarLogo from "../assets/Aadhaar_Preview.png";
+import idCardImg from "../assets/id-card.png";
+import mobileImg from "../assets/mobile.png";
+import boyImg from "../assets/boy.png";
+import fingerprintImg from "../assets/fingerprint.png";
+import aadhaar1Img from "../assets/Aadhaar1.png";
 
 const aadhaarServices = [
-  { title: "Name Updation", description: "Update your name on Aadhaar." },
-  { title: "Mobile Number Updation", description: "Update your mobile number linked to Aadhaar." },
-  { title: "Email Updation", description: "Update your email address on Aadhaar." },
-  { title: "Address Updation", description: "Update your address on Aadhaar." },
-  { title: "Photo Change", description: "Change your photo on Aadhaar." },
-  { title: "Biometric Change (Only Five Finger Device)", description: "Update your biometrics using a five finger device." },
-  { title: "Blue Card", description: "Apply for Aadhaar Blue Card for children below 5 years." },
+  {
+    title: "Name Updation",
+    description: "Update your name on Aadhaar.",
+    image: idCardImg,
+  },
+  {
+    title: "Mobile Number Updation",
+    description: "Update your mobile number linked to Aadhaar.",
+    image: mobileImg,
+  },
+  {
+    title: "Email Updation",
+    description: "Update your email address on Aadhaar.",
+    image: idCardImg,
+  },
+  {
+    title: "Address Updation",
+    description: "Update your address on Aadhaar.",
+    image: idCardImg,
+  },
+  {
+    title: "Photo Change",
+    description: "Change your photo on Aadhaar.",
+    image: boyImg,
+  },
+  {
+    title: "Biometric Change (Only Five Finger Device)",
+    description: "Update your biometrics using a five finger device.",
+    image: fingerprintImg,
+  },
+  {
+    title: "Blue Card",
+    description: "Apply for Aadhaar Blue Card for children below 5 years.",
+    image: aadhaar1Img,
+  },
 ];
 
 const Aadhaar = () => {
@@ -51,10 +84,9 @@ const Aadhaar = () => {
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: '1rem',
-              fontSize: 32,
-              color: '#3182ce',
+              overflow: 'hidden',
             }}>
-              <span role="img" aria-label="aadhaar">🔏</span>
+              <img src={service.image} alt={service.title + ' icon'} style={{ width: 40, height: 40, objectFit: 'contain' }} />
             </div>
             <h3 style={{ margin: '0 0 0.5rem 0', color: '#2b6cb0', fontWeight: 600 }}>{service.title}</h3>
             <p style={{ color: '#4a5568', textAlign: 'center', fontSize: '1rem' }}>{service.description}</p>
