@@ -28,7 +28,8 @@ const Profile = () => {
   }, [token, userId]);
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6 mt-8">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 py-10">
+      <div className="max-w-2xl mx-auto bg-white/80 rounded-xl shadow-lg p-6 mt-8 backdrop-blur-md">
       <div className="flex items-center gap-4 mb-6">
         <img
           src={Boy}
@@ -75,6 +76,7 @@ const Profile = () => {
         <div>{user ? user.bankIfsc : ''}</div>
         <div className="font-semibold text-gray-600">Wallet Balance:</div>
         <div>₹ {user ? user.wallet_balance : 0}</div>
+      </div>
       </div>
     </div>
   );

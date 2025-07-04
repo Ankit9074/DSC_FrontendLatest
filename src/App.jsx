@@ -17,6 +17,7 @@ import KycForm from "./pages/KycForm";
 import Profile from "./pages/Profile";
 import Transactions from "./pages/Transactions";
 import Aadhaar from "./pages/Aadhaar";
+import Withdraw from "./pages/Withdraw";
 
 function App() {
   const location = useLocation();
@@ -53,6 +54,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/transactions" element={<Transactions/>} />
         <Route path="/aadhaar" element={<Aadhaar />} />
+        <Route path="/withdrawal" element={<Withdraw />} />
         {/* Catch-all route to redirect to dashboard */}
       </Routes>
     </div>

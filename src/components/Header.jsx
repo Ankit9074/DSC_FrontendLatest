@@ -169,19 +169,19 @@ const Header = () => {
           <FaSuitcase className="mr-1" /> <span>0</span>
         </span>
       {/* KYC Pending Popup */}
-      {showKycPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 animate-fade-in">
-          <div className="bg-white/90 rounded-2xl shadow-2xl p-8 flex flex-col items-center backdrop-blur-md">
-            <span className="text-2xl mb-2 text-blue-700 font-bold">Pending by Admin</span>
-            <button
-              className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition shadow"
-              onClick={() => setShowKycPopup(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+ {showKycPopup && (
+  <div className="fixed top-0 left-0 w-screen h-screen z-[999] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+    <div className="bg-white/90 rounded-2xl shadow-2xl p-8 flex flex-col items-center animate-fade-in">
+      <span className="text-2xl mb-2 text-blue-700 font-bold">Service inactive</span>
+      <button
+        className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+        onClick={() => setShowKycPopup(false)}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
         <div className="relative">
           <div
             className="bg-gradient-to-r from-blue-600 to-blue-400 text-white px-5 py-2 rounded-full font-bold shadow-lg text-lg cursor-pointer hover:scale-105 transition-transform border-2 border-white/30 backdrop-blur-md"
@@ -241,7 +241,7 @@ const Header = () => {
                   </button>
                   <button
                     className="text-left px-4 py-2 rounded hover:bg-blue-100 font-medium text-blue-700 transition"
-                    onClick={() => { setShowProfile(false); navigate('/'); }}
+                    onClick={() => { setShowProfile(false); navigate('/Withdrawal'); }}
                   >
                    Withdrawal
                   </button>
