@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import aadhaarLogo from "../assets/Aadhaar_Preview.png";
 import idCardImg from "../assets/id-card.png";
 import mobileImg from "../assets/mobile.png";
@@ -45,7 +45,18 @@ const aadhaarServices = [
   },
 ];
 
+
 const Aadhaar = () => {
+  const [popup, setPopup] = useState({ open: false, service: null });
+
+  const handleCardClick = (service) => {
+    setPopup({ open: true, service });
+  };
+
+  const closePopup = () => {
+    setPopup({ open: false, service: null });
+  };
+
   return (
     <div className="aadhaar-page p-4 md:ml-64 md:p-6" style={{ minHeight: '100vh', background: '#f5f7fa', padding: '2rem' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '2rem' }}>
@@ -73,7 +84,9 @@ const Aadhaar = () => {
               flexDirection: 'column',
               alignItems: 'center',
               transition: 'transform 0.2s',
+              cursor: 'pointer',
             }}
+            onClick={() => handleCardClick(service)}
           >
             <div style={{
               width: 60,
@@ -93,6 +106,59 @@ const Aadhaar = () => {
           </div>
         ))}
       </div>
+
+      {/* Popup Modal */}
+      {popup.open && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(0,0,0,0.3)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+        }}
+          onClick={closePopup}
+        >
+          <div
+            style={{
+              background: '#fff',
+              borderRadius: '1rem',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
+              padding: '2rem 2.5rem',
+              minWidth: 320,
+              maxWidth: '90vw',
+              textAlign: 'center',
+              position: 'relative',
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            <h2 style={{ color: '#2b6cb0', fontWeight: 700, fontSize: 24, marginBottom: 12 }}>{popup.service.title}</h2>
+            <p style={{ color: '#4a5568', fontSize: 16, marginBottom: 18 }}>{popup.service.description}</p>
+            <div style={{ color: '#e53e3e', fontWeight: 500, fontSize: 16, marginBottom: 18 }}>
+             Please add the biometric device
+            </div>
+            <button
+              onClick={closePopup}
+              style={{
+                marginTop: 8,
+                padding: '8px 24px',
+                background: '#2b6cb0',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 6,
+                fontWeight: 600,
+                cursor: 'pointer',
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
