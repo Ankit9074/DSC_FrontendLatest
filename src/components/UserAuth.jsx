@@ -98,8 +98,8 @@ const UserAuth = () => {
           <div className={`mt-4 text-center font-semibold ${message.includes('successful') ? 'text-green-600' : 'text-red-600'}`}>{message}</div>
         )}
         <div className="text-center mt-6">
-          <span className="text-gray-700">Don't have an account? </span>
-          <a href="/signup" className="text-cyan-600 font-semibold hover:underline transition">Sign Up</a>
+          <span className="text-white-100">Don't have an account? </span>
+          <a href="/signup" className="text-white-100 font-semibold hover:underline transition">Sign Up</a>
         </div>
       </div>
     </div>
